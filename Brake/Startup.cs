@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AutoMapper;
+using Brake.MappingProfiles;
 
 namespace Brake
 {
@@ -34,6 +36,7 @@ namespace Brake
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddAutoMapper(typeof(MappingProfile));
             services.AddDbContext<BrakeDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddIdentity<IdentityUser,IdentityRole>()
                 .AddEntityFrameworkStores<BrakeDbContext>()
@@ -41,6 +44,7 @@ namespace Brake
                 .AddDefaultTokenProviders();
             //services.AddScoped<IDBInitializer, DBInitializer>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddCloudscribePagination();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,14 +69,9 @@ namespace Brake
 
             app.UseMvc(routes =>
             {
-                //routes.MapRoute(
-                //    "ByYearMonth",
-                //    "make/cars/{year:int:length(4)}/{month:int:range(1,12)}",
-                //    new { controller = "make", action = "ByYearMonth" }
-                //    );
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Car}/{action=Index}/{id?}");
             });
         }
     }

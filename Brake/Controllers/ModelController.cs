@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Brake.AppDbContext;
+using Brake.Controllers.Resources;
 using Brake.Models;
 using Brake.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -11,17 +13,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Brake.Controllers
 {
-    [Authorize(Roles="Admin")]
+    [Authorize(Roles = "Admin,Executive")]
     public class ModelController : Controller
     {
         private readonly BrakeDbContext _db;
+        public readonly IMapper _mapper;
 
         [BindProperty]
         public ModelViewModel ModelVM { get; set; }
 
-        public ModelController(BrakeDbContext db)
+        public ModelController(BrakeDbContext db, IMapper mapper)
         {
             _db = db;
+            _mapper = mapper;
             ModelVM = new ModelViewModel()
             {
                 Makes = db.Makes.ToList(),
@@ -89,6 +93,24 @@ namespace Brake.Controllers
             _db.Models.Remove(model);
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
+        }
+
+        [AllowAnonymous]
+        [HttpGet("api/models/{MakeID}")]
+        public IEnumerable<Model> Models(int MakeID)
+        {
+            return _db.Models.ToList().Where(m => m.MakeId==MakeID);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("api/models")]
+        public IEnumerable<ModelResources> Models()
+        {
+            //return _db.Models.ToList();
+            var models = _db.Models.ToList();
+
+            
+            return _mapper.Map<List<Model>, List<ModelResources>>(models);
         }
     }
 }

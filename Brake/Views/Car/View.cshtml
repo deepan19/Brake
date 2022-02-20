@@ -1,0 +1,106 @@
+﻿@model Brake.Models.ViewModels.CarViewModel
+@using Brake.Extensions
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h2 class="text-info">View Car</h2>
+<form>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Makes"></label>
+        </div>
+        <div class="col-4">
+            <select disabled="disabled" asp-for="Car.MakeID" asp-items="Model.Makes.ToSelectListItem()" class="form-control" id="Make"></select>
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Models"></label>
+        </div>
+        <div class="col-4">
+            <select disabled="disabled" asp-for="Car.ModelID" asp-items="Model.Models.ToSelectListItem()" class="form-control" id="Model"></select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Car.Year"></label>
+        </div>
+        <div class="col-4">
+            <input disabled="disabled"  asp-for="Car.Year" class="form-control"></input>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Car.Mileage"></label>
+        </div>
+        <div class="col-4">
+            <input disabled="disabled"  asp-for="Car.Mileage" class="form-control"></input>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Car.Price"></label>
+        </div>
+        <div class="col-4">
+            <input disabled="disabled" asp-for="Car.Price" class="form-control"></input>
+        </div>
+
+        <div class="col-1">
+            <label asp-for="Car.Currency"></label>
+        </div>
+        <div class="col-4">
+            <select disabled="disabled" asp-for="Car.Currency" asp-items="Model.Currencies.ToSelectListItem()" class="form-control"></select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Car.Features"></label>
+        </div>
+        <div class="col-4">
+            <textarea disabled="disabled" asp-for="Car.Features" class="form-control"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Car.SellerName"></label>
+        </div>
+        <div class="col-4">
+            <input disabled="disabled" asp-for="Car.SellerName" class="form-control"></input>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Car.SellerEmail"></label>
+        </div>
+        <div class="col-4">
+            <input disabled="disabled" asp-for="Car.SellerEmail" class="form-control"></input>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Car.SellerPhone"></label>
+        </div>
+        <div class="col-4">
+            <input disabled="disabled" asp-for="Car.SellerPhone" class="form-control"></input>
+        </div>
+    </div>
+
+    <br />
+    <div class="form-group">
+        <a asp-action="Index" class="btn btn-success">Back</a>
+
+    </div>
+
+
+</form>

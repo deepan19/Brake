@@ -76,3 +76,6 @@ C:\Projects\Brake\Brake\obj\Release\netcoreapp2.1\Brake.csproj.CopyComplete
 C:\Projects\Brake\Brake\obj\Release\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Projects\Brake\Brake\obj\Release\netcoreapp2.1\Razor\Views\Car\Create.g.cshtml.cs
 C:\Projects\Brake\Brake\obj\Release\netcoreapp2.1\Razor\Views\Car\Index.g.cshtml.cs
+C:\Projects\Brake\Brake\obj\Release\netcoreapp2.1\Razor\Views\Car\Edit.g.cshtml.cs
+C:\Projects\Brake\Brake\obj\Release\netcoreapp2.1\Razor\Views\Car\View.g.cshtml.cs
+C:\Projects\Brake\Brake\obj\Release\netcoreapp2.1\Razor\Views\Shared\_PaginationPartial.g.cshtml.cs

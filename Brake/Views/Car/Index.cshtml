@@ -1,51 +1,92 @@
-﻿@model IEnumerable<Brake.Models.Car>
+﻿@model cloudscribe.Pagination.Models.PagedResult<Car>
+@using Brake.Helpers
 @{
     ViewData["Title"] = "Index";
+    ViewData["Controller"] = "Car";
+    ViewData["Action"] = "Index";
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <br /><br />
+<form asp-action="Index" method="get">
+    <div>
+        <p>
+            Find Make: <input type="text" name="searchString" value="@ViewBag.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-info" />
+            <a asp-action="Index">Remove Filter</a>
+        </p>
+    </div>
 
+</form>
 <div class="row">
     <div class="col-6">
         <h2 class="text-info">Cars</h2>
     </div>
-    <div class="col-6 text-right">
-        <a class="btn btn-info" asp-action="Create"><i class="fa-solid fa-car-side"></i> Add New Car</a>
-    </div>
+    @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Executive))
+    {
+        <div class="col-6 text-right">
+            <a class="btn btn-info" asp-action="Create"><i class="fa-solid fa-car-side"></i> Add New Car</a>
+        </div>
+    }
+
     <br />
     <div class="col-12">
         <table class="table table-striped border">
             <tr class="table-info">
                 <th>Car Photo</th>
                 <th>Car Detail</th>
-                <th>Price</th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParam" asp-route-pageNumber="@Model.PageNumber">Price</a>
+                </th>
                 <th>Seller Information</th>
-                <th></th>
+                @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Executive))
+                {
+                    <th></th>
+                }
+                else
+                {
+                    <th class="text-right">View Details</th>
+                }
 
-                <th></th>
+
             </tr>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Data)
             {
-                <tr>
-                    <td><img src="@Html.DisplayFor(m => item.ImagePath)" width="150px" height="100px" /></td>
-                    <td>
-                        <b>@Html.DisplayFor(m => item.Make.Name) (@Html.DisplayFor(m=>item.Year))</b> <br />
-                        <b>Model: </b>@Html.DisplayFor(m=>item.Model.Name) <br />
-                        <b>Mileage: </b>@Html.DisplayFor(m => item.Mileage)
-                    </td>
-                    <td>@Html.DisplayFor(m => item.Price) @Html.DisplayFor(m => item.Currency)</td>
-                    <td>
-                        <b>Name: </b>@Html.DisplayFor(m => item.SellerName)<br />
-                        <b>Email: </b>@Html.DisplayFor(m => item.SellerEmail)<br />
-                        <b>Phone: </b>@Html.DisplayFor(m => item.SellerPhone)
-                    </td>
+            <tr>
+                <td><img src="@Html.DisplayFor(m => item.ImagePath)" width="150" height="100" /></td>
+                <td>
+                    <b>@Html.DisplayFor(m => item.Make.Name) (@Html.DisplayFor(m => item.Year))</b> <br />
+                    <b>Model: </b>@Html.DisplayFor(m => item.Model.Name) <br />
+                    <b>Mileage: </b>@Html.DisplayFor(m => item.Mileage)
+                </td>
+                <td>@Html.DisplayFor(m => item.Price) @Html.DisplayFor(m => item.Currency)</td>
+                <td>
+                    <b>Name: </b>@Html.DisplayFor(m => item.SellerName)<br />
+                    <b>Email: </b>@Html.DisplayFor(m => item.SellerEmail)<br />
+                    <b>Phone: </b>@Html.DisplayFor(m => item.SellerPhone)
+                </td>
+                @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Executive))
+                {
                     <partial name="_TableButtonPartial" model="item.Id" />
-                </tr>
-             
+                }
+                else
+                {
+                    <td class="text-right">
+                        <div class="btn-group" role="group">
+                            <a type="button" class="btn btn-primary" href="@Url.Action("View/"+item.Id)"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+                        </div>
+                    </td>
+
+                }
+
+            </tr>
+
             }
 
         </table>
+        <partial name="_PaginationPartial" view-data="ViewData" model="Model" />
     </div>
 </div>
 

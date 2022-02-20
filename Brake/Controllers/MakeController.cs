@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Brake.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Executive")]
     public class MakeController : Controller
     {
         private readonly BrakeDbContext _db;

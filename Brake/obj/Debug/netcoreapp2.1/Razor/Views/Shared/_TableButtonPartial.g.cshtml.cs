@@ -24,7 +24,7 @@ using Brake.Models;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"401e4bea603bb15f239980bffc011f1e3d985570", @"/Views/Shared/_TableButtonPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"99b40f2a28bf9c08e01a2bc51037f215af7852a0", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ba0d34e9cf0dadcde82859a01bb964bfbf8c5f05", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__TableButtonPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<int>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("onclick", new global::Microsoft.AspNetCore.Html.HtmlString("if (!confirm(\'Are you sure you want to delete this Item?\')){return false}"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -71,12 +71,12 @@ WriteAttributeValue("", 256, Url.Action("Edit/"+Model), 256, 26, false);
             WriteLiteral("><i class=\"fa-solid fa-pen-to-square\"></i></a>\r\n        ");
             EndContext();
             BeginContext(339, 294, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b61e166c5f6148ea9c95d1e7dab4b159", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "945453e6469c4c7cb54bda4c7d0c1082", async() => {
                 BeginContext(375, 14, true);
                 WriteLiteral("\r\n            ");
                 EndContext();
                 BeginContext(389, 227, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "594811c388114286be1476ca0041ef49", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a4a960fea068426ba0bfcaa9a1b0102e", async() => {
                     BeginContext(570, 37, true);
                     WriteLiteral("<i class=\"fa-solid fa-trash-can\"></i>");
                     EndContext();

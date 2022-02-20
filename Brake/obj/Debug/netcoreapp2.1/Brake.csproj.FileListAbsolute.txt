@@ -73,6 +73,9 @@ C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_Vali
 C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
 C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
 C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
-C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\Razor\Views\Car\Index.g.cshtml.cs
 C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\Razor\Views\Car\Create.g.cshtml.cs
+C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_PaginationPartial.g.cshtml.cs
+C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\Razor\Views\Car\Edit.g.cshtml.cs
+C:\Projects\Brake\Brake\obj\Debug\netcoreapp2.1\Razor\Views\Car\View.g.cshtml.cs
